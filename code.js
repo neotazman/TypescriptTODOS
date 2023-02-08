@@ -1,10 +1,19 @@
 "use strict";
-const inputForm = document.querySelector('#new-task-title');
+const inputForm = document.getElementById('new-task-form');
 const addButton = document.getElementById('add');
-console.log(addButton);
-// addButton.addEventListener('click', () => console.log(inputForm))
+// console.log(addButton)
+const tasks = [];
 console.log(inputForm);
-addButton === null || addButton === void 0 ? void 0 : addButton.addEventListener('click', (e) => {
+class CreateNewToDoItem {
+    constructor(name, created) {
+        this.name = name;
+        this.created = created;
+    }
+}
+addButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(e);
+    let task = new CreateNewToDoItem(inputForm === null || inputForm === void 0 ? void 0 : inputForm.children[0].value, new Date().toString());
+    console.log(task);
 });
+let x = new Date();
+console.log(x);

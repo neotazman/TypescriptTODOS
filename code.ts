@@ -1,13 +1,36 @@
 type Inputs = 'text' | 'submit'
 
-const inputForm = document.querySelector('#new-task-title')
-const addButton : HTMLElement | null = document.getElementById('add')
-console.log(addButton)
+interface ToDoItem {
+    name: string,
+    created: object,
+    priority?: string,
+    deadline?: string,
+    description?: string,
+}
 
-// addButton.addEventListener('click', () => console.log(inputForm))
+const inputForm : HTMLElement | null = document.getElementById('new-task-form')
+const addButton : HTMLElement | null = document.getElementById('add')
+// console.log(addButton)
+
+const tasks : ToDoItem[] = []
+
 console.log(inputForm)
 
-addButton?.addEventListener('click', (e) => {
+class CreateNewToDoItem {
+    name: string
+    created: string
+    constructor(name: string, created: string) {
+        this.name = name
+        this.created = created
+    }
+}
+
+addButton!.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log(e)
+    let task = new CreateNewToDoItem(inputForm?.children[0].value, new Date().toString())
+    console.log(task)
 })
+
+let x = new Date()
+
+console.log(x)
