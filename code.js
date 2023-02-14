@@ -15,13 +15,16 @@ class CreateNewToDoItem {
         this.deadline = deadline || '';
         this.description = description || '';
     }
+    displayTasks() {
+        console.log('sanity check');
+    }
 }
 function displayTasks() {
     displayContainer.innerHTML = '';
     tasks.forEach((task, i) => {
         let isThereADeadline = task.deadline ? `<div class=\"task-${i}\">deadline: ${task.deadline}</div>` : '';
         let isThereADescription = task.description ? `<div class=\"task-${i}\">description: ${task.description}</div>` : '';
-        displayContainer === null || displayContainer === void 0 ? void 0 : displayContainer.innerHTML += `<div class=\"task-${i}\">${task.name}: </div><div class=\"task-${i}\">created: ${task.created} </div><div class=\"task-${i}\">priority: ${task.priority}${isThereADeadline}</div>${isThereADescription}`;
+        displayContainer === null || displayContainer === void 0 ? void 0 : displayContainer.innerHTML += `<div class=\"task-${i}\">${task.name}: </div><div class=\"task-${i}\">created: ${task.created}</div><div class=\"task-${i}\">priority: ${task.priority}${isThereADeadline}${isThereADescription}</div>`;
     });
 }
 addButton.addEventListener('click', (e) => {

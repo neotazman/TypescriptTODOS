@@ -33,6 +33,9 @@ class CreateNewToDoItem implements ToDoItem {
         this.deadline = deadline || ''
         this.description = description || ''
     }
+    displayTasks(): void {
+        console.log('sanity check')
+    }
 }
 
 function displayTasks(): void {
@@ -40,7 +43,7 @@ function displayTasks(): void {
     tasks.forEach((task, i) => {
         let isThereADeadline = task.deadline ? `<div class=\"task-${i}\">deadline: ${task.deadline}</div>` : ''
         let isThereADescription = task.description ? `<div class=\"task-${i}\">description: ${task.description}</div>` : ''
-        displayContainer?.innerHTML+= `<div class=\"task-${i}\">${task.name}: </div><div class=\"task-${i}\">created: ${task.created} </div><div class=\"task-${i}\">priority: ${task.priority}${isThereADeadline}</div>${isThereADescription}`
+        displayContainer?.innerHTML+= `<div class=\"task-${i}\">${task.name}: </div><div class=\"task-${i}\">created: ${task.created}</div><div class=\"task-${i}\">priority: ${task.priority}${isThereADeadline}${isThereADescription}</div>`
     })
 }
 
