@@ -30,6 +30,9 @@ function displayTasks() {
 addButton.addEventListener('click', (e) => {
     e.preventDefault();
     let textBox = inputForm.children[1].value;
+    if (!textBox) {
+        throw new Error('Must Have A Title!');
+    }
     let task = new CreateNewToDoItem(textBox, new Date().toString().split('G')[0], prioritySelector.value, deadlineStr === null || deadlineStr === void 0 ? void 0 : deadlineStr.value, descriptionStr === null || descriptionStr === void 0 ? void 0 : descriptionStr.value);
     tasks.push(task);
     console.table(tasks);

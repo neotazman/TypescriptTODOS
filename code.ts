@@ -50,6 +50,9 @@ function displayTasks(): void {
 addButton!.addEventListener('click', (e) => {
     e.preventDefault()
     let textBox: string = inputForm!.children[1].value
+    if(!textBox) {
+        throw new Error('Must Have A Title!')
+    }
     let task = new CreateNewToDoItem (textBox, new Date().toString().split('G')[0], prioritySelector!.value, deadlineStr?.value, descriptionStr?.value)
     tasks.push(task)
     console.table(tasks)
